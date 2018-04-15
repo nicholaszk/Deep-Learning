@@ -25,7 +25,7 @@ Typically one might see a fully-connected layer after encoding, but this model u
 * Dimensionality reduction for the layer while preserving the image's spatial information
 * More depth with not much more compute cost.
 
-#### 3. Decoder
+#### 3. Decoder***
 This one up-scales (upsample into) the output of the encoder for instance that this will be the same size as the original image. Check 
 [Bilinear Upsampling and Decoder Block](/code/model_training.ipynb)  
 The convolution layer  added is in order to extract more spatial information from prior layers. In the concatenation step, it is similar to skip connections. Using a skip connection is implemented in order to improve segmentation accuracy [original paper](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf).
