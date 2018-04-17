@@ -137,5 +137,5 @@ This image compares my FCN's predictions to mask truth for images of the drone f
 ### Applying our model to other objects
 If we were to try and use our FCN for tracking other objects like dogs or cars or bicycles, our model architecture would be completely usable. The network layer choices for the encoder, the 1x1 convolutional layer, and the decoder would work fine. We wouldn't have to make any changes to our filter and upscaling parameters or where we included concatenation steps. The entire model would be functional.
   
-However, our current data and weights would NOT work.
+However, our current data and weights would NOT work. We would need to throw out all our images of people and collect new data (images) of whatever object we wanted to track along with whatever background and other objects would need to be segmented. In the example of a car, we would need thousands of pictures of the particular hero car that we want to isolate as well as images of several other cars. Just as in this project we would need images with just the hero car, images with only non-hero cars, and images with both the hero and other cars. With our new data, we would need to retrain our model and produce a new set of weights. The FCN would then work on cars.
   
