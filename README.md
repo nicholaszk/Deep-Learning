@@ -8,6 +8,7 @@ Using a Fully Convolutional Network (FCN) to train an image data set for semanti
 [image3]: ./deepLearningPics/trainingcurve.JPG
 [image4]: ./deepLearningPics/followcompare.JPG
 [image5]: ./deepLearningPics/finalscore.JPG
+[image6]: ./deepLearningPics/network.JPG
   
   
 ## Project Steps:
@@ -73,7 +74,10 @@ def decoder_block(small_ip_layer, large_ip_layer, filters):
 ```
 At the end of the model a Softmax function generates probability predictions for each pixel.
   
-Here is the code for our model:
+Here is a drawn diagram of my FCN model:
+![Alt text][image6]
+  
+Here is my code to implement the above model:
   
 ```
 def fcn_model(inputs, num_classes):
