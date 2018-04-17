@@ -23,7 +23,6 @@ Here are a few images of my spawn and pathing plans:
 ![Alt text][image2]
 
 ### 2) FCN Implementation for Semantic Segmentation
-![Alt text](/images/network.png)
 
 A FCN is basically a normal CNN (convolutional neural network) where the last fully connected layer has been replaced by a 1x1 convolutional layer. An FCN attempts to capture the entire context of a scene, telling us what objects are in the image (classification) as well as their approximate location in the image for the purpose of semantic segmentation of the image. The FCN for this project consists of the following three parts:
 
