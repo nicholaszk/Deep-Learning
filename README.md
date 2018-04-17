@@ -1,5 +1,13 @@
 # Deep-Learning
 Using a Fully Convolutional Network (FCN) to train an image data set for semantic segmentation of 3 labels: primary person to follow, other persons, and background.  
+
+[//]: # (Image References)
+
+[image1]: ./deepLearningPics/pathing1.JPG
+[image2]: ./deepLearningPics/pathing2.JPG
+[image3]: ./deepLearningPics/trainingcurve.JPG
+[image4]: ./deepLearningPics/followcompare.JPG
+[image5]: ./deepLearningPics/finalscore.JPG
   
   
 ## Project Steps:
@@ -9,8 +17,10 @@ While the data provided by Udacity was good enough to train a passing model, I c
 * dense crowd with no target (collected while patrolling).
 * target in a dense crowd at a distance (collected while patrolling).
   
-![Alt text](/images/pathing1.png)
-![Alt text](/images/pathing2.png)
+Here are a few images of my spawn and pathing plans:
+  
+![Alt text][image1]
+![Alt text][image2]
 
 ### 2) FCN Implementation for Semantic Segmentation
 ![Alt text](/images/network.png)
@@ -101,31 +111,27 @@ validation_steps = 12  # number of batches of validation images that go through 
 workers = 4  # maximum number of processes to spin up
 ```
   
-General thoughts about why each hyper parameter value was chosen****
+* Learning rate was determined through trial and error as a compromise between the speedy rate of 0.01 and the better eventual accuracy provided by 0.001.
+* Batch size was picked arbitrarily, but I wanted to pick something higher than what a regular PC/GPU could run (I was curious about the ultra-large RAM of AWS's EC2 instance).
+* It seemed after much trial and error that approximately 40 epochs would get me a final score of greater than 0.40, so I picked 42 to increase my chances a bit without adding too much compute time.
+* Steps per epoch was calculated by dividing the total training set (4131) by the batch size. This yields 41.3, so I rounded up to 42.
+* Just as above I divided total validation set size by 100 to get in the ballpark of 12.
+* I bumped worker number to 4 because the EC2 server uses a quad-core Xeon processor. This decreased epoch compute time from 72 seconds to 66 seconds.
    
 Final results:
 
-![Alt text](/images/finalepochresults.png)
+![Alt text][image3]
+![Alt text][image5]
   
-Change this*****
-```
-400/400 [==============================] - 495s - loss: 0.0151 - val_loss: 0.0204
-```
+This image compares my FCN's predictions to mask truth for images of the drone following the hero:
   
-### 4.Check the score accuracy
-* images while following target
-![Alt text](/placeholder.png)
-![Alt text](/placeholder.png)
-* images while patrolling with no target
-![Alt text](/placeholder.png)
-* images while patrolling with target
-![Alt text](/placeholder.png)
-
-**The final grade score is  0.433361966648**
+![Alt text][image4]
+  
+**The final grade score is  0.436**
 
 ## Future Enhancements
-
-Add more to this****
   
-* Adding more training data would be significant to avoid overfitting.
+* Adding more training data would be significant. With much more training data, we could decrease learning rate and drastically increase the number of epochs with much less risk of overfitting.
+* I could try adding more layers to the network to capture more context
+* With more time to perform trial and error, learning rate could become precisely optimized for a better segmentation score
   
