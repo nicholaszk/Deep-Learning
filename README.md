@@ -134,3 +134,8 @@ This image compares my FCN's predictions to mask truth for images of the drone f
 * I could try adding more layers to the network to capture more context
 * With more time to perform trial and error, learning rate could become precisely optimized for a better segmentation score
   
+### Applying our model to other objects
+If we were to try and use our FCN for tracking other objects like dogs or cars or bicycles, our model architecture would be completely usable. The network layer choices for the encoder, the 1x1 convolutional layer, and the decoder would work fine. We wouldn't have to make any changes to our filter and upscaling parameters or where we included concatenation steps. The entire model would be functional.
+  
+However, our current data and weights would NOT work.
+  
