@@ -18,7 +18,7 @@ While the data provided by Udacity was good enough to train a passing model, I c
 * dense crowd with no target (collected while patrolling).
 * target in a dense crowd at a distance (collected while patrolling).
   
-Here are a few images of my spawn and pathing plans:
+Below are a few images of my spawn and pathing plans:
   
 ![Alt text][image1]
 ![Alt text][image2]
